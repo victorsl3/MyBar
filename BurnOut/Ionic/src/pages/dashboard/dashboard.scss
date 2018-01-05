@@ -69,6 +69,47 @@ page-dashboard {
     }
   }
 
+  .grid-graficos-mediano {
+    margin-bottom: 16px;
+
+    .ico_moon {
+        display: flex;
+        margin: 16px auto 48px auto;
+        height: 30%;
+        max-height: 200px;
+    }
+
+    .grafico-mediano {
+      margin: auto;
+      max-width: 90px;
+  
+      .icono {
+        text-align: center;
+        margin-top: -98px;
+  
+        ion-icon {
+          color: color($colors, gris-1);
+          font-size: 2em;
+        }
+      }
+    }
+
+
+    .grafico-casigrande{
+        margin: auto;
+        max-width: 150px;
+    }
+
+    .subtitle_med{
+        margin-top:-30px;
+    }
+
+    .subtitle_med_heart{
+        margin-top:-10px;
+    }
+
+  }
+
   .bloque-btn-detalles {
     display: flex;
     align-items: center;
@@ -78,6 +119,7 @@ page-dashboard {
       display: flex;
       align-items: center;
       justify-content: center;
+      z-index: 100;
       
       .detalles {
         display: inline;

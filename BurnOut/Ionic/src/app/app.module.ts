@@ -7,11 +7,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { Camera } from '@ionic-native/camera';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { GlobalProvider } from '../providers/global/global';
 import { DatabaseProvider } from '../providers/database/database';
+import { FitBitServiceProvider } from '../providers/fit-bit-service/fit-bit-service';
+import { NgxEchartsModule } from 'ngx-echarts';
+
+import { IonicStorageModule } from '@ionic/storage';
+import { SQLite } from '@ionic-native/sqlite';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA0mnZssyqo5PieFUUBTipdU9VB9uh0Xvo",
@@ -37,9 +44,12 @@ export const firebaseConfig = {
       preloadModules: true
     }),
     HttpModule,
+    HttpClientModule,
+    NgxEchartsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,7 +61,9 @@ export const firebaseConfig = {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     Camera,
     GlobalProvider,
-    DatabaseProvider
+    DatabaseProvider,
+    FitBitServiceProvider,
+    SQLite
   ]
 })
 export class AppModule { }
