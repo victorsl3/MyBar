@@ -36,6 +36,7 @@
     "chart.js": "2.6.0",
     "com-badrit-base64": "^0.2.0",
     "cordova-android": "~6.3.0",
+    "cordova-ios": "4.5.4",
     "cordova-plugin-camera": "3.0.0",
     "cordova-plugin-device": "1.1.4",
     "cordova-plugin-inappbrowser": "^1.7.2",
@@ -73,7 +74,8 @@
       "com-badrit-base64": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
