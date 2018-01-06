@@ -7,7 +7,7 @@
 <!-->CONTENT</!-->
 <ion-content padding class="contenedor">
   <img src="assets/imgs/logo.svg" class="logo" />
-  <form (ngSubmit)="login()" class="formulario">
+  <form (ngSubmit)="login()" class="formulario" *ngIf="!_id">
     <ion-item>
       <ion-input type="email" [(ngModel)]="formulario.email" name="email" placeholder="Correo electrónico"></ion-input>
     </ion-item>
