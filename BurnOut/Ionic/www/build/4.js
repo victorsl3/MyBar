@@ -1,50 +1,12 @@
 webpackJsonp([4],{
 
-/***/ 454:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RecomendacionPageModule", function() { return RecomendacionPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(132);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__recomendacion__ = __webpack_require__(634);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var RecomendacionPageModule = (function () {
-    function RecomendacionPageModule() {
-    }
-    RecomendacionPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__recomendacion__["a" /* RecomendacionPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__recomendacion__["a" /* RecomendacionPage */]),
-            ],
-        })
-    ], RecomendacionPageModule);
-    return RecomendacionPageModule;
-}());
-
-//# sourceMappingURL=recomendacion.module.js.map
-
-/***/ }),
-
-/***/ 634:
+/***/ 1095:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecomendacionPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_global_global__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_global_global__ = __webpack_require__(136);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -126,7 +88,7 @@ var RecomendacionPage = (function () {
     };
     RecomendacionPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-recomendacion',template:/*ion-inline-start:"D:\Trabajo\Clientes\Christian Sukuzhanay\Proyectos\eburnout-app\Codigo\eburnout\src\pages\recomendacion\recomendacion.html"*/'<!-->HEADER</!-->\n<ion-header>\n  <div>\n    <ion-navbar>\n      <ion-title>Recomendación</ion-title>\n    </ion-navbar>\n  </div>\n</ion-header>\n<!-->FIN HEADER</!-->\n\n<!-->CONTENT</!-->\n<ion-content padding>\n  <ion-icon name="pulse" class="icono"></ion-icon>\n  <p class="titulo">Te recomendamos mejorar</p>\n  <p class="titulo-texto">CANSANCIO EMOCIONAL:</p>\n  <p class="texto">- {{ cansancioEmocional }}</p>\n  <p class="titulo-texto">DESPERSONALIZACIÓN:</p>\n  <p class="texto">- {{ despersonalizacion }}</p>\n  <p class="titulo-texto">REALIZACIÓN PERSONAL:</p>\n  <p class="texto">- {{ realizacionPersonal }}</p>\n</ion-content>\n<!-->FIN CONTENT</!-->'/*ion-inline-end:"D:\Trabajo\Clientes\Christian Sukuzhanay\Proyectos\eburnout-app\Codigo\eburnout\src\pages\recomendacion\recomendacion.html"*/,
+            selector: 'page-recomendacion',template:/*ion-inline-start:"/myApp/src/pages/recomendacion/recomendacion.html"*/'<!-->HEADER</!-->\n<ion-header>\n  <div>\n    <ion-navbar>\n      <ion-title>Recomendación</ion-title>\n    </ion-navbar>\n  </div>\n</ion-header>\n<!-->FIN HEADER</!-->\n\n<!-->CONTENT</!-->\n<ion-content padding>\n  <ion-icon name="pulse" class="icono"></ion-icon>\n  <p class="titulo">Te recomendamos mejorar</p>\n  <p class="titulo-texto">CANSANCIO EMOCIONAL:</p>\n  <p class="texto">- {{ cansancioEmocional }}</p>\n  <p class="titulo-texto">DESPERSONALIZACIÓN:</p>\n  <p class="texto">- {{ despersonalizacion }}</p>\n  <p class="titulo-texto">REALIZACIÓN PERSONAL:</p>\n  <p class="texto">- {{ realizacionPersonal }}</p>\n</ion-content>\n<!-->FIN CONTENT</!-->'/*ion-inline-end:"/myApp/src/pages/recomendacion/recomendacion.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_global_global__["a" /* GlobalProvider */]])
     ], RecomendacionPage);
@@ -134,6 +96,44 @@ var RecomendacionPage = (function () {
 }());
 
 //# sourceMappingURL=recomendacion.js.map
+
+/***/ }),
+
+/***/ 468:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RecomendacionPageModule", function() { return RecomendacionPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__recomendacion__ = __webpack_require__(1095);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var RecomendacionPageModule = (function () {
+    function RecomendacionPageModule() {
+    }
+    RecomendacionPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__recomendacion__["a" /* RecomendacionPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__recomendacion__["a" /* RecomendacionPage */]),
+            ],
+        })
+    ], RecomendacionPageModule);
+    return RecomendacionPageModule;
+}());
+
+//# sourceMappingURL=recomendacion.module.js.map
 
 /***/ })
 

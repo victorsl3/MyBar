@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 450:
+/***/ 465:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CamaraPageModule", function() { return CamaraPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(132);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__camara__ = __webpack_require__(579);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__camara__ = __webpack_require__(752);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27,7 +27,7 @@ var CamaraPageModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__camara__["a" /* CamaraPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__camara__["a" /* CamaraPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__camara__["a" /* CamaraPage */]),
             ],
         })
     ], CamaraPageModule);
@@ -38,15 +38,15 @@ var CamaraPageModule = (function () {
 
 /***/ }),
 
-/***/ 579:
+/***/ 752:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CamaraPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_camera__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_database_database__ = __webpack_require__(283);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_global_global__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_camera__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_database_database__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_global_global__ = __webpack_require__(136);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -146,7 +146,7 @@ var CamaraPage = (function () {
     };
     CamaraPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-camara',template:/*ion-inline-start:"D:\Trabajo\Clientes\Christian Sukuzhanay\Proyectos\eburnout-app\Codigo\eburnout\src\pages\camara\camara.html"*/'<!-->HEADER</!-->\n<ion-header>\n  <div>\n    <ion-navbar>\n      <ion-title>Camara</ion-title>\n    </ion-navbar>\n  </div>\n</ion-header>\n<!-->FIN HEADER</!-->\n\n<!-->CONTENT</!-->\n<ion-content padding>\n  <p class="texto-1">¡Hazte una foto,</p>\n  <p class="texto-2">Detectemos tu\n    <span class="texto-contraste">estado de ánimo!</span>\n  </p>\n  <div class="border-foto">\n    <div [ngStyle]="{\'background-image\': \'url(\' + foto + \')\'}" class="foto"></div>\n  </div>\n  <ion-grid class="datos">\n    <ion-row>\n      <ion-col>\n        <button ion-button icon-only (click)="hacerFoto()" class="btn-1 btn-izq">\n          <ion-icon name="camera"></ion-icon>\n          Foto\n        </button>\n      </ion-col>\n      <ion-col>\n        <button ion-button icon-only (click)="enviarFoto()" class="btn-1 btn-der">\n          <ion-icon name="send"></ion-icon>\n          Enviar\n        </button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <p class="texto-3">{{ estadoAnimo }}</p>\n  <p *ngIf="errorFoto" class="texto-4">Cara no detectada, intente hacerse otra foto.</p>\n</ion-content>\n<!-->FIN CONTENT</!-->'/*ion-inline-end:"D:\Trabajo\Clientes\Christian Sukuzhanay\Proyectos\eburnout-app\Codigo\eburnout\src\pages\camara\camara.html"*/,
+            selector: 'page-camara',template:/*ion-inline-start:"/myApp/src/pages/camara/camara.html"*/'<!-->HEADER</!-->\n<ion-header>\n  <div>\n    <ion-navbar>\n      <ion-title>Camara</ion-title>\n    </ion-navbar>\n  </div>\n</ion-header>\n<!-->FIN HEADER</!-->\n\n<!-->CONTENT</!-->\n<ion-content padding>\n  <p class="texto-1">¡Hazte una foto,</p>\n  <p class="texto-2">Detectemos tu\n    <span class="texto-contraste">estado de ánimo!</span>\n  </p>\n  <div class="border-foto">\n    <div [ngStyle]="{\'background-image\': \'url(\' + foto + \')\'}" class="foto"></div>\n  </div>\n  <ion-grid class="datos">\n    <ion-row>\n      <ion-col>\n        <button ion-button icon-only (click)="hacerFoto()" class="btn-1 btn-izq">\n          <ion-icon name="camera"></ion-icon>\n          Foto\n        </button>\n      </ion-col>\n      <ion-col>\n        <button ion-button icon-only (click)="enviarFoto()" class="btn-1 btn-der">\n          <ion-icon name="send"></ion-icon>\n          Enviar\n        </button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <p class="texto-3">{{ estadoAnimo }}</p>\n  <p *ngIf="errorFoto" class="texto-4">Cara no detectada, intente hacerse otra foto.</p>\n</ion-content>\n<!-->FIN CONTENT</!-->'/*ion-inline-end:"/myApp/src/pages/camara/camara.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_2__providers_database_database__["a" /* DatabaseProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_global_global__["a" /* GlobalProvider */]])
     ], CamaraPage);
