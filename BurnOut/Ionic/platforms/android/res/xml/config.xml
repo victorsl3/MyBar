@@ -18,6 +18,15 @@
         <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="SQLitePlugin">
+        <param name="android-package" value="io.sqlc.SQLitePlugin" />
+    </feature>
+    <feature name="Base64">
+        <param name="android-package" value="com.badrit.Base64.Base64Plugin" />
+    </feature>
     <name>eBurnout</name>
     <description>eBurnout</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>

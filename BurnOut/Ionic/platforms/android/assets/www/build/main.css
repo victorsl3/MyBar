@@ -30814,6 +30814,48 @@ page-dashboard .grid-graficos-peque .grafico-peque .icono ion-icon {
   font-size: 2em;
 }
 
+page-dashboard .grid-graficos-mediano {
+  margin-bottom: 16px;
+}
+
+page-dashboard .grid-graficos-mediano .ico_moon {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 16px auto 48px auto;
+  height: 30%;
+  max-height: 200px;
+}
+
+page-dashboard .grid-graficos-mediano .grafico-mediano {
+  margin: auto;
+  max-width: 90px;
+}
+
+page-dashboard .grid-graficos-mediano .grafico-mediano .icono {
+  text-align: center;
+  margin-top: -98px;
+}
+
+page-dashboard .grid-graficos-mediano .grafico-mediano .icono ion-icon {
+  color: #3D3B39;
+  font-size: 2em;
+}
+
+page-dashboard .grid-graficos-mediano .grafico-casigrande {
+  margin: auto;
+  max-width: 150px;
+}
+
+page-dashboard .grid-graficos-mediano .subtitle_med {
+  margin-top: -30px;
+}
+
+page-dashboard .grid-graficos-mediano .subtitle_med_heart {
+  margin-top: -10px;
+}
+
 page-dashboard .bloque-btn-detalles {
   display: -webkit-box;
   display: -webkit-flex;
@@ -30842,6 +30884,7 @@ page-dashboard .bloque-btn-detalles .btn-detalles {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  z-index: 100;
 }
 
 page-dashboard .bloque-btn-detalles .btn-detalles .detalles {
