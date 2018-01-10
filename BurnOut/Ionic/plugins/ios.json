@@ -8,31 +8,31 @@
   },
   "installed_plugins": {
     "com-badrit-base64": {
-      "PACKAGE_NAME": "com.ue.eburnout"
+      "PACKAGE_NAME": "com.ue.burnoutapp"
     },
     "cordova-plugin-camera": {
-      "PACKAGE_NAME": "com.ue.eburnout"
+      "PACKAGE_NAME": "com.ue.burnoutapp"
     },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.ue.eburnout"
+      "PACKAGE_NAME": "com.ue.burnoutapp"
     },
     "cordova-plugin-inappbrowser": {
-      "PACKAGE_NAME": "com.ue.eburnout"
+      "PACKAGE_NAME": "com.ue.burnoutapp"
     },
     "cordova-plugin-ionic-webview": {
-      "PACKAGE_NAME": "com.ue.eburnout"
+      "PACKAGE_NAME": "com.ue.burnoutapp"
     },
     "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "com.ue.eburnout"
+      "PACKAGE_NAME": "com.ue.burnoutapp"
     },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.ue.eburnout"
+      "PACKAGE_NAME": "com.ue.burnoutapp"
     },
     "cordova-sqlite-storage": {
-      "PACKAGE_NAME": "com.ue.eburnout"
+      "PACKAGE_NAME": "com.ue.burnoutapp"
     },
     "ionic-plugin-keyboard": {
-      "PACKAGE_NAME": "com.ue.eburnout"
+      "PACKAGE_NAME": "com.ue.burnoutapp"
     }
   },
   "dependent_plugins": {}
