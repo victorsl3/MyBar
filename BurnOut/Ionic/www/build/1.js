@@ -1,57 +1,21 @@
 webpackJsonp([1],{
 
-/***/ 451:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(132);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(580);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var LoginPageModule = (function () {
-    function LoginPageModule() {
-    }
-    LoginPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
-            ],
-        })
-    ], LoginPageModule);
-    return LoginPageModule;
-}());
-
-//# sourceMappingURL=login.module.js.map
-
-/***/ }),
-
-/***/ 580:
+/***/ 1098:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(132);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(285);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_global_global__ = __webpack_require__(282);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_database_database__ = __webpack_require__(283);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Observable__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_global_global__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_database_database__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Observable__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_combineLatest__ = __webpack_require__(581);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_combineLatest__ = __webpack_require__(1099);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_combineLatest___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_combineLatest__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_sqlite__ = __webpack_require__(141);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -68,17 +32,108 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var LoginPage = (function () {
-    function LoginPage(navCtrl, fireAuth, toastCtrl, global, database, loadingCtrl) {
+    function LoginPage(navCtrl, fireAuth, toastCtrl, global, database, loadingCtrl, _storage, _sqlite) {
         this.navCtrl = navCtrl;
         this.fireAuth = fireAuth;
         this.toastCtrl = toastCtrl;
         this.global = global;
         this.database = database;
         this.loadingCtrl = loadingCtrl;
-        this.formulario = { email: 'fps86n@gmail.com', password: '123456' };
+        this._storage = _storage;
+        this._sqlite = _sqlite;
+        this._db = null;
+        this._id = 0;
+        this._semilla = "MyBurnOut";
+        this.formulario = { email: '', password: '' };
     }
     LoginPage.prototype.ionViewDidLoad = function () {
+        this._onInit();
+    };
+    LoginPage.prototype._cipher = function (message, action) {
+        var text = message;
+        var encrypted = "";
+        for (var i = 0; i < text.length; i++) {
+            var ASCII = text[i].charCodeAt(0);
+            var n = null;
+            if (i % 2 == 0) {
+                n = action == 'encrypt' ? ASCII + 4 : ASCII - 4;
+            }
+            else if (i % 2 == 1) {
+                n = action == 'encrypt' ? ASCII + 7 : ASCII - 7;
+            }
+            var s = String.fromCharCode(n);
+            encrypted += s;
+            ;
+        }
+        return encrypted;
+    };
+    LoginPage.prototype._onInit = function () {
+        var _self = this;
+        this._createDatabase().then(function (success) {
+            if (success[0] !== undefined) {
+                _self._id = success[0]["id"];
+                _self.formulario.email = success[0]["email"];
+                var desc = _self._cipher(success[0]["pwd"], '');
+                _self.formulario.password = desc;
+                return _self.login();
+            }
+        }, function (error) {
+            _self.toast(JSON.stringify(error));
+        });
+    };
+    LoginPage.prototype._createDatabase = function () {
+        var _self = this;
+        return this._sqlite.create({
+            name: 'eburnout.db',
+            location: 'default' // the location field is required
+        })
+            .then(function (db) {
+            _self._setDatabase(db);
+            _self._createTable();
+            return _self._getUser();
+        })
+            .catch(function (error) {
+            console.error(error);
+            _self.toast(JSON.stringify(error));
+            Promise.reject(error);
+        });
+    };
+    LoginPage.prototype._setDatabase = function (db) {
+        if (this._db === null) {
+            this._db = db;
+        }
+    };
+    LoginPage.prototype._update = function (email, pwd, id) {
+        var sql = 'UPDATE usuario SET email=?, pwd=? WHERE id=?';
+        return this._db.executeSql(sql, [email, pwd, id]);
+    };
+    LoginPage.prototype._create = function (email, pwd) {
+        var sql = 'INSERT INTO usuario(email,pwd) VALUES(?,?)';
+        return this._db.executeSql(sql, [email, pwd]);
+    };
+    LoginPage.prototype._deleteTable = function () {
+        var sql = 'DROP TABLE IF EXISTS usuario';
+        return this._db.executeSql(sql, []);
+    };
+    LoginPage.prototype._createTable = function () {
+        var sql = 'CREATE TABLE IF NOT EXISTS usuario(id INTEGER PRIMARY KEY AUTOINCREMENT, email VARCHAR(100),pwd TEXT)';
+        return this._db.executeSql(sql, []);
+    };
+    LoginPage.prototype._getUser = function () {
+        var _self = this;
+        var sql = 'SELECT * FROM usuario WHERE id=1';
+        return this._db.executeSql(sql, [])
+            .then(function (response) {
+            var arrData = [];
+            for (var index = 0; index < response.rows.length; index++) {
+                arrData.push(response.rows.item(index));
+            }
+            return Promise.resolve(arrData);
+        })
+            .catch(function (error) { return Promise.reject(error); });
     };
     /* LOGIN FIREBASE */
     LoginPage.prototype.login = function () {
@@ -89,7 +144,8 @@ var LoginPage = (function () {
         this.loading.present().then(function () {
             _this.fireAuth.auth.signInWithEmailAndPassword(_this.formulario.email, _this.formulario.password)
                 .then(function (resultado) {
-                _this.observable = __WEBPACK_IMPORTED_MODULE_5_rxjs_Observable__["Observable"].combineLatest(_this.database.preguntas(), _this.database.recomendaciones(), _this.database.usuarioRegistradoBD(resultado.uid), _this.database.encuestasUltimas(resultado.uid)).subscribe(function (resultados) {
+                _this.observable = __WEBPACK_IMPORTED_MODULE_5_rxjs_Observable__["Observable"].combineLatest(_this.database.preguntas(), _this.database.recomendaciones(), _this.database.usuarioRegistradoBD(resultado.uid), _this.database.encuestasUltimas(resultado.uid), _this.database.idClientFitBit(resultado.uid)).subscribe(function (resultados) {
+                    console.log(resultados);
                     _this.global.questions = resultados[0];
                     _this.global.recommendations = resultados[1];
                     if (resultados[2] == null) {
@@ -97,12 +153,24 @@ var LoginPage = (function () {
                         _this.loading.dismiss();
                     }
                     else {
+                        var dato = _this._cipher(_this.formulario.password, 'encrypt');
+                        if (_this._id) {
+                            _this._update(_this.formulario.email, dato, _this._id);
+                        }
+                        else {
+                            _this._create(_this.formulario.email, dato);
+                        }
                         _this.global.usuario = resultados[2];
                         _this.global.resultadoPreguntas = _this.global.usuario.ultimaencuesta;
                         for (var _i = 0, _a = resultados[3]; _i < _a.length; _i++) {
                             var resultadoPreguntas = _a[_i];
                             var encuesta = resultadoPreguntas;
                             _this.global.resultadosPreguntas.push(encuesta.encuesta);
+                        }
+                        for (var _b = 0, _c = resultados[4]; _b < _c.length; _b++) {
+                            var llavesFitBit = _c[_b];
+                            _this.global.client_id = llavesFitBit["client_id"];
+                            _this.global.client_secret = llavesFitBit["client_secret"];
                         }
                         _this.navCtrl.setRoot('TabGeneralPage');
                         _this.loading.dismiss();
@@ -134,10 +202,11 @@ var LoginPage = (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"D:\Trabajo\Clientes\Christian Sukuzhanay\Proyectos\eburnout-app\Codigo\eburnout\src\pages\login\login.html"*/'<!-->HEADER</!-->\n<ion-header>\n  <div></div>\n</ion-header>\n<!-->FIN HEADER</!-->\n\n<!-->CONTENT</!-->\n<ion-content padding class="contenedor">\n  <img src="assets/imgs/logo.svg" class="logo" />\n  <form (ngSubmit)="login()" class="formulario">\n    <ion-item>\n      <ion-input type="email" [(ngModel)]="formulario.email" name="email" placeholder="Correo electrónico"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input type="password" [(ngModel)]="formulario.password" name="password" placeholder="Contraseña"></ion-input>\n    </ion-item>\n    <button ion-button type="submit" class="btn-1">Entrar</button>\n  </form>\n</ion-content>\n<!-->FIN CONTENT</!-->'/*ion-inline-end:"D:\Trabajo\Clientes\Christian Sukuzhanay\Proyectos\eburnout-app\Codigo\eburnout\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"/myApp/src/pages/login/login.html"*/'<!-->HEADER</!-->\n<ion-header>\n  <div></div>\n</ion-header>\n<!-->FIN HEADER</!-->\n\n<!-->CONTENT</!-->\n<ion-content padding class="contenedor">\n  <img src="assets/imgs/logo.svg" class="logo" />\n  <form (ngSubmit)="login()" class="formulario" *ngIf="!_id">\n    <ion-item>\n      <ion-input type="email" [(ngModel)]="formulario.email" name="email" placeholder="Correo electrónico"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input type="password" [(ngModel)]="formulario.password" name="password" placeholder="Contraseña"></ion-input>\n    </ion-item>\n    <button ion-button type="submit" class="btn-1">Entrar</button>\n  </form>\n</ion-content>\n<!-->FIN CONTENT</!-->'/*ion-inline-end:"/myApp/src/pages/login/login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_database_database__["a" /* DatabaseProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_global_global__["a" /* GlobalProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_database_database__["a" /* DatabaseProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_8__ionic_native_sqlite__["a" /* SQLite */]])
     ], LoginPage);
     return LoginPage;
 }());
@@ -146,27 +215,27 @@ var LoginPage = (function () {
 
 /***/ }),
 
-/***/ 581:
+/***/ 1099:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var Observable_1 = __webpack_require__(5);
-var combineLatest_1 = __webpack_require__(582);
+var Observable_1 = __webpack_require__(4);
+var combineLatest_1 = __webpack_require__(1100);
 Observable_1.Observable.combineLatest = combineLatest_1.combineLatest;
 //# sourceMappingURL=combineLatest.js.map
 
 /***/ }),
 
-/***/ 582:
+/***/ 1100:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var isScheduler_1 = __webpack_require__(135);
-var isArray_1 = __webpack_require__(133);
-var ArrayObservable_1 = __webpack_require__(134);
-var combineLatest_1 = __webpack_require__(583);
+var isScheduler_1 = __webpack_require__(139);
+var isArray_1 = __webpack_require__(137);
+var ArrayObservable_1 = __webpack_require__(138);
+var combineLatest_1 = __webpack_require__(1101);
 /* tslint:enable:max-line-length */
 /**
  * Combines multiple Observables to create an Observable whose values are
@@ -301,7 +370,7 @@ exports.combineLatest = combineLatest;
 
 /***/ }),
 
-/***/ 583:
+/***/ 1101:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -311,10 +380,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var ArrayObservable_1 = __webpack_require__(134);
-var isArray_1 = __webpack_require__(133);
-var OuterSubscriber_1 = __webpack_require__(43);
-var subscribeToResult_1 = __webpack_require__(42);
+var ArrayObservable_1 = __webpack_require__(138);
+var isArray_1 = __webpack_require__(137);
+var OuterSubscriber_1 = __webpack_require__(44);
+var subscribeToResult_1 = __webpack_require__(43);
 var none = {};
 /* tslint:enable:max-line-length */
 /**
@@ -456,6 +525,44 @@ var CombineLatestSubscriber = (function (_super) {
 }(OuterSubscriber_1.OuterSubscriber));
 exports.CombineLatestSubscriber = CombineLatestSubscriber;
 //# sourceMappingURL=combineLatest.js.map
+
+/***/ }),
+
+/***/ 471:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(1098);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var LoginPageModule = (function () {
+    function LoginPageModule() {
+    }
+    LoginPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+            ],
+        })
+    ], LoginPageModule);
+    return LoginPageModule;
+}());
+
+//# sourceMappingURL=login.module.js.map
 
 /***/ })
 

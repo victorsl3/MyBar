@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
           console.log(res);
           this.router.navigate(['home']);
         })
-        .catch((err) => this.error = err;);
+        .catch((err) => this.error = err);
     }
 
 }

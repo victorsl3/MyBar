@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
   porcentajeBurnoutHombres: number;
   porcentajeBurnoutMujeres: number;
 
-  constructor(public database: DatabaseService,private authService: AuthService) {
+  constructor(public database: DatabaseService,public authService: AuthService) {
     this.usuariosConBurnout = 0;
     this.porcentajeBurnoutUsuarios = 0;
     this.usuariosEncuestados = 0;
