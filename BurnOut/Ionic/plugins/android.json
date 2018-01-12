@@ -30,9 +30,6 @@
     },
     "cordova-sqlite-storage": {
       "PACKAGE_NAME": "com.ue.burnoutapp"
-    },
-    "com-badrit-base64": {
-      "PACKAGE_NAME": "com.ue.burnoutapp"
     }
   },
   "dependent_plugins": {}

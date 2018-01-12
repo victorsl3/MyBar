@@ -6,7 +6,6 @@ import { DatabaseProvider } from '../../providers/database/database';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
 
-import { Storage } from '@ionic/storage';
 import { SQLite } from '@ionic-native/sqlite';
 import { SQLiteObject } from '@ionic-native/sqlite';
 
@@ -25,11 +24,9 @@ export class LoginPage {
   private _db: SQLiteObject = null;
   private _id : number = 0;
   
-  private _semilla : string = "MyBurnOut";
 
   constructor(public navCtrl: NavController, public fireAuth: AngularFireAuth, public toastCtrl: ToastController,
-    public global: GlobalProvider, public database: DatabaseProvider, public loadingCtrl: LoadingController,
-    private _storage: Storage, private _sqlite: SQLite) {
+	  public global: GlobalProvider, public database: DatabaseProvider, public loadingCtrl: 	LoadingController, private _sqlite: SQLite) {
     this.formulario = { email: '', password: '' };
     
   }
@@ -100,7 +97,6 @@ export class LoginPage {
               return _self._getUser();
         })
         .catch(error =>{
-            console.error(error);
             _self.toast(JSON.stringify(error));
             Promise.reject( error );
         });
@@ -123,10 +119,10 @@ export class LoginPage {
         return this._db.executeSql(sql, [email,pwd]);
     }
 
-    private _deleteTable(){
+    /*private _deleteTable(){
         let sql = 'DROP TABLE IF EXISTS usuario';
         return this._db.executeSql(sql, []);
-    }
+    }*/
 
     
     private _createTable(){
@@ -135,7 +131,7 @@ export class LoginPage {
     }
 
     private _getUser(){
-        var _self = this;
+
         let sql = 'SELECT * FROM usuario WHERE id=1';
         return this._db.executeSql(sql, [])
             .then(response => {
@@ -146,6 +142,7 @@ export class LoginPage {
                 return Promise.resolve( arrData );
             })
             .catch(error => Promise.reject( error ) );
+			
     }
 
    
@@ -164,7 +161,7 @@ export class LoginPage {
         .then(resultado => {
           this.observable = Observable.combineLatest(this.database.preguntas(), this.database.recomendaciones(),
             this.database.usuarioRegistradoBD(resultado.uid), this.database.encuestasUltimas(resultado.uid),this.database.idClientFitBit(resultado.uid)).subscribe(resultados => {
-              console.log(resultados);
+
               this.global.questions = resultados[0];
               this.global.recommendations = resultados[1];
               if (resultados[2] == null) {
@@ -191,6 +188,7 @@ export class LoginPage {
                 this.navCtrl.setRoot('TabGeneralPage');
                 this.loading.dismiss();
               }
+			  
             });
         })
         .catch(error => {

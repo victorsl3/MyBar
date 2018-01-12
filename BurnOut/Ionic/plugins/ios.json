@@ -7,9 +7,6 @@
     "files": {}
   },
   "installed_plugins": {
-    "com-badrit-base64": {
-      "PACKAGE_NAME": "com.ue.burnoutapp"
-    },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "com.ue.burnoutapp"
     },

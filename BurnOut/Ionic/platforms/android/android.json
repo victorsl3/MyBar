@@ -35,10 +35,6 @@
             {
               "xml": "<feature name=\"SQLitePlugin\"><param name=\"android-package\" value=\"io.sqlc.SQLitePlugin\" /></feature>",
               "count": 1
-            },
-            {
-              "xml": "<feature name=\"Base64\"><param name=\"android-package\" value=\"com.badrit.Base64.Base64Plugin\" /></feature>",
-              "count": 1
             }
           ]
         }
@@ -84,9 +80,6 @@
       "PACKAGE_NAME": "com.ue.eburnout"
     },
     "cordova-sqlite-storage": {
-      "PACKAGE_NAME": "com.ue.eburnout"
-    },
-    "com-badrit-base64": {
       "PACKAGE_NAME": "com.ue.eburnout"
     }
   },
@@ -165,14 +158,6 @@
       "clobbers": [
         "SQLitePlugin"
       ]
-    },
-    {
-      "id": "com-badrit-base64.Base64",
-      "file": "plugins/com-badrit-base64/www/Base64.js",
-      "pluginId": "com-badrit-base64",
-      "clobbers": [
-        "navigator.Base64"
-      ]
     }
   ],
   "plugin_metadata": {
@@ -183,7 +168,6 @@
     "cordova-plugin-splashscreen": "4.0.3",
     "cordova-plugin-ionic-webview": "1.1.16",
     "cordova-plugin-inappbrowser": "1.7.2",
-    "cordova-sqlite-storage": "2.1.5",
-    "com-badrit-base64": "0.2.0"
+    "cordova-sqlite-storage": "2.1.5"
   }
 }

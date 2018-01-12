@@ -5,7 +5,7 @@ import { GlobalProvider } from '../../providers/global/global';
 import { FitBitServiceProvider } from '../../providers/fit-bit-service/fit-bit-service';
 
 import { FBSleep } from './../../models/fbsleep'; // Model, para instanciar la información del usuario
-import { GraphSleepOpts, itemValueStyle, itemValueTotalStyle, AHIOpts, AHIOptsChartJS } from './graph-opts';
+import { GraphSleepOpts, itemValueStyle, itemValueTotalStyle, AHIOptsChartJS } from './graph-opts';
 
 import * as echarts from 'echarts';
 
@@ -326,8 +326,6 @@ export class DashboardPage implements AfterViewInit,OnDestroy{
 
 
     private _update_opts(){
-
-        console.log('update');
 
         // SLEEP
         this._fbsleep = this._fts.sleep();

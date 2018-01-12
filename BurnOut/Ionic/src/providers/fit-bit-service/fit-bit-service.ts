@@ -137,7 +137,6 @@ export class FitBitServiceProvider {
               return _self._getClient();
         })
         .catch(error =>{
-            console.error(error);
             _self.showAlert(JSON.stringify(error));
             Promise.reject( error );
         });
@@ -155,23 +154,23 @@ export class FitBitServiceProvider {
         return this._db.executeSql(sql, [token,this._client_id]);
     }
 
-    private _deleteTable(){
+    /*private _deleteTable(){
         let sql = 'DROP TABLE IF EXISTS client';
         return this._db.executeSql(sql, []);
-    }
+    }*/
 
     private _createTable(){
         let sql = 'CREATE TABLE IF NOT EXISTS client(id INTEGER PRIMARY KEY AUTOINCREMENT, token TEXT,client_id VARCHAR(6))';
         return this._db.executeSql(sql, []);
     }
 
-    private _delete(id: any){
+    /*private _delete(id: any){
         let sql = 'DELETE FROM client WHERE id=?';
         return this._db.executeSql(sql, [id]);
-    }
+    }*/
 
     private _getClient(){
-        var _self = this;
+
         let sql = 'SELECT * FROM client WHERE id=1';
         return this._db.executeSql(sql, [])
             .then(response => {
@@ -182,6 +181,7 @@ export class FitBitServiceProvider {
                 return Promise.resolve( arrClient );
             })
             .catch(error => Promise.reject( error ) );
+			
     }
 
     private _update(token,id: any){
@@ -354,7 +354,6 @@ export class FitBitServiceProvider {
                 self._storage.set('fb_access_token', self._access_token);
 
 
-                console.log('le pidio');
                 self._valuate_error({status:1001});
             }
 
@@ -376,7 +375,6 @@ export class FitBitServiceProvider {
             if( !this._access_token.trim().length && this.have_bracelet() ){
                 this._toAutorizate();
             }else{
-                console.log('le tiene');
                 this._valuate_error({status:1001});
             }
 
@@ -390,9 +388,6 @@ export class FitBitServiceProvider {
 
     private _valuate_error(error){
         
-        console.log('error');
-        console.log( error );
-
         this.errorObserver.next(error);
 
         if(error.status != undefined){
@@ -452,13 +447,13 @@ export class FitBitServiceProvider {
     }
 
 
-    private _get_userData() {
+    /*private _get_userData() {
 
         var headers = new HttpHeaders(this._get_authHeader());
         return this.http.get('https://api.fitbit.com/1/user/-/profile.json', 
             {headers: headers}).map( res => res );
 
-    }
+    }*/
 
 
     private _get_heart() {
@@ -486,8 +481,6 @@ export class FitBitServiceProvider {
                         }
                     );
 
-                    console.log(_self._tsAHI);
-
                 }
 
                 _self._get_sleep();
@@ -511,8 +504,6 @@ export class FitBitServiceProvider {
             {headers: headers}).subscribe((sleeps) => {
 
                 if(_self._stayWaiting) _self._valuate_error({status:1002});
-
-                console.log(sleeps);
 
                 if(sleeps["sleep"] !== undefined){
                     if (sleeps["sleep"][0] !== undefined){

@@ -1,14 +1,6 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
   {
-    "id": "com-badrit-base64.Base64",
-    "file": "plugins/com-badrit-base64/www/Base64.js",
-    "pluginId": "com-badrit-base64",
-    "clobbers": [
-      "navigator.Base64"
-    ]
-  },
-  {
     "id": "cordova-plugin-camera.Camera",
     "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
     "pluginId": "cordova-plugin-camera",
@@ -94,7 +86,6 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-  "com-badrit-base64": "0.2.0",
   "cordova-plugin-camera": "3.0.0",
   "cordova-plugin-device": "1.1.4",
   "cordova-plugin-inappbrowser": "1.7.2",
