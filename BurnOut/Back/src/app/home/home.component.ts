@@ -53,14 +53,16 @@ export class HomeComponent implements OnInit {
     this.porcentajeBurnoutMujeres = 0;
     this.cargarDatos();
   }
-
+// Metodo que pinta las graficas
   ngOnInit() {
     this.graficas();
   }
 
   /* CARGAR DATOS */
   cargarDatos() {
+    // el metodo subscribe matiene abierta la query
     Observable.combineLatest(this.database.usuarios(), this.database.encuestas()).subscribe(resultados => {
+      // Cargo los documentos del firebase y los almacenos en las var usuarios y encuestas.
       this.usuarios = resultados[0];
       this.encuestas = resultados[1];
       this.calcularUsuariosBurnout();
@@ -91,7 +93,7 @@ export class HomeComponent implements OnInit {
     if (this.usuariosConBurnout > 0) {
       this.porcentajeBurnoutHombres = Math.round((this.hombresConBurnout * 100) / this.usuariosConBurnout); // HOMBRES % CON BURNOUT
       this.porcentajeBurnoutMujeres = 100 - this.porcentajeBurnoutHombres; // MUJERES % CON BURNOUT.
-      console.log(this.porcentajeBurnoutHombres)
+      // console.log(this.porcentajeBurnoutHombres)
     }
   }
   /* FIN CALCULAR DATOS USUARIOS BURNOUT */
@@ -222,12 +224,17 @@ export class HomeComponent implements OnInit {
 
   /* ACTUALIZAR GRAFICAS */
   actualizarGraficas() {
-    this.graficaBurnoutChart.data.datasets[0].data[0] = this.porcentajeBurnoutUsuarios;
-    this.graficaBurnoutChart.data.datasets[0].data[1] = 100 - this.porcentajeBurnoutUsuarios;
+    // Primera grafica
+    this.graficaBurnoutChart.data.datasets[0].data[0] = this.porcentajeBurnoutUsuarios; // Parte Roja
+    this.graficaBurnoutChart.data.datasets[0].data[1] = 100 - this.porcentajeBurnoutUsuarios; // Parte Gris
     this.graficaBurnoutChart.update();
+
+    // Segunda grafica
     this.graficaBurnoutVsNoBurnoutChart.data.datasets[0].data[0] = this.usuariosConBurnout;
     this.graficaBurnoutVsNoBurnoutChart.data.datasets[0].data[1] = this.usuarios.length - this.usuariosConBurnout;
     this.graficaBurnoutVsNoBurnoutChart.update();
+
+    // Tercera grafica
     this.graficaPreguntasChart.data.datasets[0].data[0] = this.porcentajeAe;
     this.graficaPreguntasChart.data.datasets[0].data[1] = this.porcentajeD;
     this.graficaPreguntasChart.data.datasets[0].data[2] = this.porcentajeRp;
