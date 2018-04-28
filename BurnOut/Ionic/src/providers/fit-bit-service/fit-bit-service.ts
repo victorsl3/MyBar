@@ -71,13 +71,10 @@ export class FitBitServiceProvider {
         
         this._fbsleep = new FBSleep(0,"","",0);
 
-
-
         this.errorObserver = null;
         this.error = Observable.create(observer => {
             this.errorObserver = observer;
         });
-
 
         this._set_time_cron();
 
@@ -252,7 +249,6 @@ export class FitBitServiceProvider {
 
         var day = date.getDate() < 10 ? "0"+date.getDate().toString() : date.getDate().toString();
         var minutes = date.getMinutes() < 10 ? "0"+date.getMinutes().toString() : date.getMinutes().toString();
-
         var month = date.getMonth()+1 < 10 ? "0"+(date.getMonth()+1).toString() : (date.getMonth()+1).toString();
 
         if(sFormat=="HH:mm:ss")
@@ -383,8 +379,7 @@ export class FitBitServiceProvider {
     }
 
 
-
-
+    
 
     private _valuate_error(error){
         
