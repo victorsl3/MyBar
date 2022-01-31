@@ -5,3 +5,4 @@ Versión entregable para PBDI, que incluye los siguientes apartados:
 	- Nueva memoria del proyecto repetida tras la cancelación del proyecto anterior (Big Goal)
 	- Contenido del hosting en deploy con el servidor de firebase
 	- HTML de la página hosteada en el servidor
+	- Script proceso de autentificación
