@@ -1,1 +1,1 @@
-Selección de series temporales en RapidMiner, extracción de datos de aforo y comienzo del modelado en python
+Finalmente utilizamos dos modelos de random forest ante la poca experiencia con redes neuronales, ya terminado en python.
