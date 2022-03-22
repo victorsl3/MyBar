@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mybar2-59b4c": {
+      "hosting": {
+        "app": [
+          "mybar2-59b4c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mybar2-59b4c"
+  }
+}
