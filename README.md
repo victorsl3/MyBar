@@ -1,3 +1,4 @@
-Versión de entrega 1 de PBD2. Dentro de los scripts incluye el ZIP de main.py y requirements.txt implementado en Cloud Functions.
-También se han realizado mejoras en el modelo de predicción de aforos, pero sigue en desarrollo.
-También se incluye una versión anterior de ionic que será actualizada en próximas releases.
+Modelo actualizado con 3 poblaciones:
+Población 1 (menores a 600): --> Mean Absolute Error: 68.02 peatones.
+Población 2 (mayores a 500): --> Mean Absolute Error: 222.85 peatones.
+Población 3 (mayores a 1000): --> Mean Absolute Error: 1071.76 peatones.
