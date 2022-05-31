@@ -1,0 +1,1 @@
+Actualización con inserción automática en SQL
