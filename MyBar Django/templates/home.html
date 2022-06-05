@@ -1,0 +1,20 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<section class="section_button">
+  <button id="search_bars">Buscar bares</button>
+</section>
+<div id="map"></div>
+{% else %}
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/map.js' %}"></script>
+{% endblock %}

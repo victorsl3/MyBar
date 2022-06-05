@@ -1,0 +1,17 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Peoples{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div id="map"></div>
+{% else %}
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/peoples.js' %}"></script>
+{% endblock %}

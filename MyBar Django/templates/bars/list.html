@@ -1,0 +1,21 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}List{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<section class="section_button">
+  <button id="search_bars"><a href="/bars/list">Buscar bares</a></button>
+</section>
+<div class="list-group" id="bars_list">
+</div>
+{% else %}
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/list.js' %}"></script>
+{% endblock %}

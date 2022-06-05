@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border">
+    <a class="navbar-brand" href="/">MyBar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Mapa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/bars/list">Listado</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/bars/my_bars">Mis bares</a>
+        </li>
+        {% comment %} <li class="nav-item">
+          <a class="nav-link" href="/peoples">Madrid</a>
+        </li> {% endcomment %}
+      </ul>
+    </div>
+
+    <div class="form-inline my-2 my-lg-0">
+        {% comment %} <button type="button" class="btn btn-secondary">Secondary</button> {% endcomment %}
+        <a class="btn btn-secondary" href="{% url 'logout' %}">Cerrar sesión</a>
+    </form>
+    </div>
+  </nav>

@@ -1,0 +1,52 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ bar.name }}{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<section class="center">
+    {% if bar.image %}
+      <img src="{{ bar.image.url }}" class="img-fluid" alt="{{ bar.reference }}">
+    {% else %}
+      <h6>Sin imagen</h6>
+    {% endif %}
+    <h1>{{ bar.name }}</h1>
+    <h5>Localización: {{ bar.formatted_address }}</h5>
+    <p>Coordenadas: {{ bar.lat }} | {{ bar.lng }}</p>
+    <p>Referencia: {{ bar.reference }}</p>
+    <p>Place ID: {{ bar.place_id }}</p>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Mostrado el</th>
+            <th scope="col">Nivel de precio</th>
+            <th scope="col">Grado de clasificación</th>
+            <th scope="col">Total de calificaciones</th>
+            <th scope="col">Aforo</th>
+            <th scope="col">Abierto</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for d in details %}
+                <tr>
+                    <td>{{ d.created_at }}</td>
+                    <td>{% if d.price_level %}{{ d.price_level }}{% else %}Desconocido{% endif %}</td>
+                    <td>{{ d.rating }}</td>
+                    <td>{{ d.user_ratings_total }}</td>
+                    <td>{% if d.capacity %}{{ d.capacity }}{% else %}Desconocido{% endif %}</td>
+                    <td>{% if d.opening %}Abierto{% else %}Cerrado{% endif %}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+    
+{% else %}
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}
+
+{% block js %}
+{% endblock %}

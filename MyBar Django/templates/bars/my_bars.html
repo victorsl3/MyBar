@@ -1,0 +1,31 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}List{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="list-group" id="bars_list">
+    {% if bars %}
+        {% for bar in bars %}
+            <a href="bar/{{ bar.reference }}" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ bar.name }}</h5>
+                    <small>{{ bar.reference }}</small>
+                </div>
+                <p class="mb-1">{{ bar.formatted_address }}</p>
+                <small>And some small print.</small>
+            </a>
+        {% endfor %}
+    {% else %}
+        <h1>Todavía no tienes bares</h1>
+    {% endif %}
+</div>
+{% else %}
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}
+
+{% block js %}
+{% endblock %}
