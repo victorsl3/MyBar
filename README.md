@@ -1,1 +1,4 @@
-Actualización con inserción automática en SQL
+Proyecto MyBar:
+Aplicación en Django
+LandingPage
+Scripts de Anaconda
