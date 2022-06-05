@@ -107,11 +107,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Madrid'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -128,8 +128,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL = 'media/' # Entregable 2 - Añadimos la carpeta media/ como la carpeta donde tendremos nuestros archivos multimedia
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Entregable 2 - Decimos que nuestra carpeta media estará en el directorio rais - media
+MEDIA_URL = 'media/' #  Añadimos la carpeta media/ como la carpeta donde tendremos nuestros archivos multimedia
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #  Decimos que nuestra carpeta media estará en el directorio rais - media
 
 
 # django_project/settings.py

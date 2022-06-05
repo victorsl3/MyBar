@@ -86,8 +86,8 @@ $("#search_bars").click(function () {
     });
     
     var folder = "static/";
-    var iconoCerveza1 = new iconoBase({iconUrl: folder+'img/cerveza.png'});  
-    var iconoCerveza2 = new iconoBase({iconUrl: folder+'img/closed.png'});  
+    var iconoCerveza2 = new iconoBase({iconUrl: folder+'img/cerveza.png'});  
+    var iconoCerveza1 = new iconoBase({iconUrl: folder+'img/closed.png'});  
     var iconoCerveza3 = new iconoBase({iconUrl: folder+'img/crowded.png'});  
     
     $.ajax({
@@ -104,6 +104,10 @@ $("#search_bars").click(function () {
 
                 var icon = iconoCerveza1;
                 if(response['capacities'][i]['capacity'] == 'Low'){
+                    icon = iconoCerveza2;
+                    
+                }
+                else if(response['capacities'][i]['capacity'] == 'Average'){
                     icon = iconoCerveza2;
                 }else if(response['capacities'][i]['capacity'] == 'Above average'){
                     icon = iconoCerveza3;
